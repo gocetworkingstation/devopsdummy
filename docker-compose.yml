@@ -4,9 +4,9 @@ services:
     build: 
       context: ./backend
       dockerfile: Dockerfile
+    image: mydevopsdummyacr.azurecr.io/devopsdummy-backend:latest
     ports:
       - "3001:3001"
-    # If your Node server references any environment variables, set them here
     environment:
       - PORT=3001
 
@@ -14,7 +14,6 @@ services:
     build:
       context: ./fronten
       dockerfile: Dockerfile
+    image: mydevopsdummyacr.azurecr.io/devopsdummy-frontend:latest
     ports:
       - "3000:80"
-    # If your React app fetches from 'http://localhost:3001', that will still work on your machine.
-    # But inside Docker, you'd reference 'http://backend:3001' if the fetch happens server-side.
